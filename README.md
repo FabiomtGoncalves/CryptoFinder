@@ -1,6 +1,7 @@
 ```
-ASP.NET
-SQL Server
+
 ```
 > [!NOTE]
-> Useful information that users should know, even when skimming content.
+> ASP.NET
+> <sub>subscript</sub> 
+> SQL Server
