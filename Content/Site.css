@@ -1,0 +1,86 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#navMenu {
+    width: 1310px;
+    padding: 10px;
+    margin: 0;
+    background-color: #212F3D;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.card {
+    flex: 0 0 30%;
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+}
+
+.card img {
+    max-width: 100%;
+}
+
+.card .text {
+    padding: 0 20px 20px;
+}
+
+.card .text > button {
+    background: green;
+    border: 0;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 100px;
+}
+
+p {
+    display: inline-block
+}
+
+.img-size{
+    width: 7%;
+}
+
+.link-hover:hover{
+    color: darkorange;
+}
+
+.coingecko{
+    width: 35%;
+}
+
+.main-list{
+    display: inline-block;
+}
+
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}

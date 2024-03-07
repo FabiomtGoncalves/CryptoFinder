@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/93b8eed4ea.js" crossorigin="anonymous"></script>
+    <title>CryptoFinder</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="topright">@Html.Partial("_LoginPartial")</div>
+    <img class="rounded mx-auto d-block img-size" src="https://images.ctfassets.net/q33z48p65a6w/ApCXuXdHBtJxrkEW3FqeC/12584aba53f2897de1ae650fd3676e0d/2310_Conversion_Cards_Crypto_so_easy_470x470_2.png?fit=thumb&fm=png&q=70&w=252" alt="CryptoFinder Logo">
+    <h3 class="text-center link-hover">@Html.ActionLink("CryptoFinder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</h3>
+    <div class="text-center">
+        <p>Powered by <a href="https://www.coingecko.com/" target="_blank"><img class="coingecko" src="https://static.coingecko.com/s/coingecko-logo-8903d34ce19ca4be1c81f0db30e924154750d208683fad7ae6f2ce06c76d0a56.png" alt="Italian Trulli"></a> API</p>
+    </div>
+
+    <div class="d-flex justify-content-center rounded-pill p-3 mb-2 bg-warning text-white m-auto w-25 border border-dark">
+        <div class="px-2 link-hover">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</div>
+        <div class="px-2 link-hover">@Html.ActionLink("Exchanges", "Index", "Exchanges", new { area = "" }, new { @class = "nav-link" })</div>
+        <div class="px-2 link-hover">@Html.ActionLink("Crypto", "Search", "Exchanges", new { area = "" }, new { @class = "nav-link" })</div>
+        <div class="px-2 link-hover">@Html.ActionLink("Testing", "Testing", "Home", new { area = "" }, new { @class = "nav-link" })</div>
+    </div>
+
+
+
+
+    <div class="container body-content">
+
+        <h3 class="text-center">@Html.Raw(@ViewBag.Title)</h3>
+        <hr />
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - CryptoFinder.com</p>
+            <br />
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

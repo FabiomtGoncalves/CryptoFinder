@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Crypto Search";
+    var objs = ViewBag.cryptos;
+}
+
+
+<div class="wrap text-center">
+    @using (Html.BeginForm())
+    {
+
+        @Html.AntiForgeryToken()
+        <!--<form method="post" asp-controller="Exchanges" asp-action="Search">-->
+        <input class="" type="text" id="searchCrypto" name="searchCrypto" placeholder="Crypto / Symbol" required>
+        <button type="submit" class="btn btn-primary">
+            <i class="fa fa-search"></i>
+        </button>
+    }
+    </div>
+
+
+@if (ViewBag.error != "!erro!")
+{
+
+    <ul class="cards">
+
+
+        @if (objs != null)
+        {
+
+            foreach (var obj in objs)
+            {
+                <li class="card">
+                    <img src=@obj.large alt=@obj.name>
+                    <div class="text">
+                        <h3>@obj.coins</h3>
+                        <br />
+                        <p><b>Symbol:</b> @obj.symbol</p>
+                        <br />
+                        <p><b>Market Cap Rank:</b> #@obj.market_cap_rank</p>
+                    </div>
+                </li>
+
+
+
+            }
+        }
+
+
+    </ul>
+}
+else
+{
+    <div class="text-center">
+        <br />
+        <p class="text-danger"><i class="fa-solid fa-circle-xmark"></i> Cannot be empty.</p>
+    </div>
+}

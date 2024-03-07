@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Exchanges";
+    var apiException = ViewData["exchanges"];
+    var objs = ViewBag.obj;
+}
+
+<ul class="cards text-center">
+
+    @foreach (var obj in objs)
+    {
+        <li class="card">
+            <img src=@obj.image alt=@obj.name>
+            <div class="text">
+                <h3>@obj.name</h3>
+
+                <p><b>Founded:</b> @obj.year_established</p>
+                <br />
+                <p><b>Country:</b> @obj.country</p>
+                <br />
+                @if (obj.trust_score < 7)
+                {
+                    <p class="text-warning"><b>Score:</b> @obj.trust_score / 10</p>
+                }
+                else
+                {
+                    <p class="text-success"><b>Score:</b> @obj.trust_score / 10</p>
+                }
+                <br />
+                <a href=@obj.url target="_blank" class="btn btn-success" role="button">Website</a>
+            </div>
+        </li>
+
+    }
+
+    
+
+
+</ul>

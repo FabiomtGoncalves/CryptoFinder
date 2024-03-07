@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Testing Code";
+}
+
+
+@if (HttpContext.Current.User.Identity.IsAuthenticated == true)
+{
+    <button class="btn btn-primary">
+        @Html.ActionLink("Pools", "Index", "PoolsNews", new { area = "" }, new { @class = "nav-link" })
+    </button>
+}
+else
+{
+    <button class="btn btn-primary" disabled>
+        Pools
+    </button>
+    <small class="text-muted">
+        Need to login to access this page.
+    </small>
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+    <table>
+        <tr>
+            <td>Crypto Name: </td>
+            <td><input type="text" class="form-control mx-auto" asp placeholder="Crypto" id="cryptoName" name="cryptoName" required /></td>
+        </tr>
+        <tr>
+            <td>Symbol Name: </td>
+            <td><input type="text" class="form-control" asp placeholder="Symbol" id="symbolName" name="symbolName" required /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input class="btn btn-success" type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+    <hr />
+
+    if (ViewBag.Name != "!erro!")
+    {
+        if (ViewBag.Name != null)
+        {
+            <p class="text-success">@ViewBag.Name <i class="fa-solid fa-circle-check"></i></p>
+        }
+    }
+    else
+    {
+        <p class="text-danger">Prencha ambos os campos. <i class="fa-solid fa-circle-xmark"></i></p>
+    }
+}
+@{
+    ViewBag.Title = "Testing Code";
+}
+
