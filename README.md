@@ -3,5 +3,5 @@
 ```
 > [!NOTE]
 > ASP.NET  
-> <sub>Entity Framework</sub>  
+sub>Entity Framework</sub>  
 > SQL Server
