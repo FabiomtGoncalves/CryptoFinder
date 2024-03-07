@@ -1,5 +1,6 @@
 ```
 ASP.NET
-Test <sub>Entity Framework</sub> asd
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
 SQL Server
 ```   
