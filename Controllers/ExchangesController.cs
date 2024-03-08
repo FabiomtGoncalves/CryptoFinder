@@ -17,17 +17,22 @@ namespace CryptoExchange.Controllers
         private string baseUrl = "https://api.coingecko.com/api/v3/";
         private WebClient web = new WebClient();
 
+        private JArray readAPI(string url)
+        {
+            var responseString = web.DownloadString(baseUrl + url);
+            return JArray.Parse(responseString);
+        }
+
         // GET: Exchanges
         public ActionResult Index()
         {
-            //var result = JsonConvert.DeserializeObject(responseString);
-
 
             try
             {
-                var responseString = web.DownloadString(baseUrl + "exchanges");
-                var objects = JArray.Parse(responseString);
-                ViewBag.obj = objects;
+                //var responseString = web.DownloadString(baseUrl + "exchanges");
+                //var objects = JArray.Parse(responseString);
+                string url = "exchanges";
+                ViewBag.obj = readAPI(url);
             }
             catch (Exception e)
             {
@@ -58,7 +63,7 @@ namespace CryptoExchange.Controllers
                     var responseString = web.DownloadString(baseUrl + "search?query=" + searchCrypto);
                     var objects = JObject.Parse(responseString);
                     var arrayObj = JArray.Parse(objects["coins"].ToString());
-                    System.Diagnostics.Debug.WriteLine("OBJ: " + arrayObj);
+                    //System.Diagnostics.Debug.WriteLine("OBJ: " + arrayObj);
                     ViewBag.cryptos = arrayObj;
                 }
                 catch (Exception e)

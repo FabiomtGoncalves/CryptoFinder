@@ -12,14 +12,18 @@ namespace CryptoExchange
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
 
     public partial class PoolsNew
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Email is required")]
         [DisplayName("Email")]
         public string email { get; set; }
+        [Required(ErrorMessage = "Pool Name is required")]
         [DisplayName("Pool Name")]
         public string pool_name { get; set; }
+        [Required(ErrorMessage = "Amount to Stake is required")]
         [DisplayName("Amount to Stake")]
         public double staked_amount { get; set; }
     }

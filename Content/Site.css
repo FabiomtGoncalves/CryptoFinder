@@ -84,3 +84,7 @@ p {
     right: 16px;
     font-size: 18px;
 }
+
+table {
+    border: none;
+}

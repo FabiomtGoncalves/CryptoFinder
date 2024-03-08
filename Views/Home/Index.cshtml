@@ -1,7 +1,51 @@
 ﻿@{
     ViewBag.Title = "<i class=\"fa-solid fa-house\"></i> Home";
+    var btc = ViewBag.btc;
+    var eth = ViewBag.eth;
 }
 
+@if (btc != null && eth != null)
+{
+    <div class="text-center">
+        <h4>Prices Today:</h4>
+        <small class="text-muted">@ViewBag.date</small>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="text-center table table-responsive" cellpadding="10">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><i class="fa-brands fa-bitcoin text-warning"></i> @btc.name (@btc.symbol)</td>
+                    <td class="text-success">@btc.market_data.current_price.usd <b>$</b></td>
+                    <td><b>|</b></td>
+                    <td class="text-success">@btc.market_data.current_price.eur <b>€</b></td>
+                    <td><b>|</b></td>
+                    <td class="text-success">@btc.market_data.current_price.gbp <b>£</b></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-brands fa-ethereum text-primary"></i> @eth.name (@eth.symbol)</td>
+                    <td class="text-success">@eth.market_data.current_price.usd <b>$</b></td>
+                    <td><b>|</b></td>
+                    <td class="text-success">@eth.market_data.current_price.eur <b>€</b></td>
+                    <td><b>|</b></td>
+                    <td class="text-success">@eth.market_data.current_price.gbp <b>£</b></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <p class="text-center">Error getting prices from CoinGecko API.</p>
+}
 
 
 <main>

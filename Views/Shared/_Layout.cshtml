@@ -19,8 +19,11 @@
 
     <div class="d-flex justify-content-center rounded-pill p-3 mb-2 bg-warning text-white m-auto w-25 border border-dark">
         <div class="px-2 link-hover">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</div>
+        <div class="text-black">|</div>
         <div class="px-2 link-hover">@Html.ActionLink("Exchanges", "Index", "Exchanges", new { area = "" }, new { @class = "nav-link" })</div>
+        <div class="text-black">|</div>
         <div class="px-2 link-hover">@Html.ActionLink("Crypto", "Search", "Exchanges", new { area = "" }, new { @class = "nav-link" })</div>
+        <div class="text-black">|</div>
         <div class="px-2 link-hover">@Html.ActionLink("Testing", "Testing", "Home", new { area = "" }, new { @class = "nav-link" })</div>
     </div>
 
