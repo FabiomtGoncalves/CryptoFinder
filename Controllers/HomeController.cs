@@ -22,10 +22,11 @@ namespace CryptoExchange.Controllers
         {
             try
             {
-                var responseString = web.DownloadString(baseUrl + url + date.ToString("dd-MM-yyyy"));
-                return JObject.Parse(responseString);
+              var responseString = web.DownloadString(baseUrl + url + date.ToString("dd-MM-yyyy"));
+              return JObject.Parse(responseString);
             } catch (Exception e)
             {
+                System.Diagnostics.Debug.WriteLine("ERRO: " + e);
                 return null;
             }
                 

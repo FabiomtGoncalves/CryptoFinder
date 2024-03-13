@@ -16,7 +16,7 @@
             <i class="fa fa-search"></i>
         </button>
     }
-    </div>
+</div>
 
 
 @if (ViewBag.error != "!erro!")
@@ -44,6 +44,14 @@
 
 
             }
+        }
+        else
+        {
+            <li>
+                <div class="text-center">
+                    <p>Error getting prices from CoinGecko API. (Too many requests)</p>
+                </div>
+            </li>
         }
 
 

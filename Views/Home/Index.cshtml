@@ -24,19 +24,19 @@
                 </tr>
                 <tr>
                     <td><i class="fa-brands fa-bitcoin text-warning"></i> @btc.name (@btc.symbol)</td>
-                    <td class="text-success">@btc.market_data.current_price.usd <b>$</b></td>
+                    <td class="text-success"> @String.Format("{0:#,##0.00}", btc.market_data.current_price.usd) <b>$</b></td>
                     <td><b>|</b></td>
-                    <td class="text-success">@btc.market_data.current_price.eur <b>€</b></td>
+                    <td class="text-success">@String.Format("{0:#,##0.00}", btc.market_data.current_price.eur) <b>€</b></td>
                     <td><b>|</b></td>
-                    <td class="text-success">@btc.market_data.current_price.gbp <b>£</b></td>
+                    <td class="text-success">@String.Format("{0:#,##0.00}", btc.market_data.current_price.gbp) <b>£</b></td>
                 </tr>
                 <tr>
                     <td><i class="fa-brands fa-ethereum text-primary"></i> @eth.name (@eth.symbol)</td>
-                    <td class="text-success">@eth.market_data.current_price.usd <b>$</b></td>
+                    <td class="text-success">@String.Format("{0:#,##0.00}", eth.market_data.current_price.usd) <b>$</b></td>
                     <td><b>|</b></td>
-                    <td class="text-success">@eth.market_data.current_price.eur <b>€</b></td>
+                    <td class="text-success">@String.Format("{0:#,##0.00}", eth.market_data.current_price.eur) <b>€</b></td>
                     <td><b>|</b></td>
-                    <td class="text-success">@eth.market_data.current_price.gbp <b>£</b></td>
+                    <td class="text-success">@String.Format("{0:#,##0.00}", eth.market_data.current_price.gbp) <b>£</b></td>
                 </tr>
             </table>
         </div>
@@ -44,7 +44,9 @@
 }
 else
 {
-    <p class="text-center">Error getting prices from CoinGecko API.</p>
+    <div class="text-center">
+        <p>Error getting prices from CoinGecko API. (Too many requests)</p>
+    </div>
 }
 
 

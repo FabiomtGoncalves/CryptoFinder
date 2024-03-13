@@ -10,6 +10,7 @@ using CryptoExchange;
 
 namespace CryptoExchange.Controllers
 {
+    [Authorize]
     public class PoolsNewsController : Controller
     {
         private CryptoExchangeEntities2 db = new CryptoExchangeEntities2();

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (ViewBag.ping != null)
+{
+    <div class="text-center">
+        <h3>
+            <i class="fa-solid fa-circle-check text-success"></i> 
+            @ViewBag.ping
+        </h3>
+    </div>
+}
+else
+{
+<div class="text-center">
+    <h3>
+        <i class="fa-solid fa-circle-xmark text-danger"></i> 
+        Error getting data from CryptoFinderAPI.
+    </h3>
+</div>
+}
+
+

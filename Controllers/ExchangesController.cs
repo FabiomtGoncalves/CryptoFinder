@@ -36,7 +36,8 @@ namespace CryptoExchange.Controllers
             }
             catch (Exception e)
             {
-                ViewData["exchanges"] = "Too Many API Requests" + e;
+                System.Diagnostics.Debug.WriteLine("ERRO: " + e);
+                ViewBag.obj = null;
             }
 
 
@@ -63,12 +64,12 @@ namespace CryptoExchange.Controllers
                     var responseString = web.DownloadString(baseUrl + "search?query=" + searchCrypto);
                     var objects = JObject.Parse(responseString);
                     var arrayObj = JArray.Parse(objects["coins"].ToString());
-                    //System.Diagnostics.Debug.WriteLine("OBJ: " + arrayObj);
                     ViewBag.cryptos = arrayObj;
                 }
                 catch (Exception e)
                 {
-                    ViewData["exchanges"] = "Too Many API Requests" + e;
+                    System.Diagnostics.Debug.WriteLine("ERRO: " + e);
+                    ViewBag.cryptos = null;
                 }
             }
 
