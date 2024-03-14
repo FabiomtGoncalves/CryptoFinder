@@ -1,25 +1,101 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "API [Testing]";
 }
 
 @if (ViewBag.ping != null)
 {
     <div class="text-center">
         <h3>
-            <i class="fa-solid fa-circle-check text-success"></i> 
+            <i class="fa-solid fa-circle-check text-success"></i>
             @ViewBag.ping
         </h3>
+        <hr />
     </div>
+
+    <br />
+
+    <div class="grid-container">
+
+        <div class="left">
+            <div class="wrap text-center">
+                @using (Html.BeginForm())
+                {
+
+                    @Html.AntiForgeryToken()
+                    <h4>Create Crypto</h4>
+                    <div class="row justify-content-center text-center">
+                        <input class="form-control" type="text" id="cryptoName" name="cryptoName" placeholder="Crypto Name" required>
+                        <br /> <br />
+                        <input class="form-control" type="text" id="symbolName" name="symbolName" placeholder="Symbol" required>
+                        <br /> <br />
+                        <input class="form-control" type="text" id="desc" name="desc" placeholder="Description" required>
+                        <br /> <br /> <br />
+                        <button type="submit" class="btn btn-primary">
+                            Create
+                        </button>
+                    </div>
+                }
+                @if (ViewBag.error == "!erro!")
+                {
+                    <div class="text-center">
+                        <p>
+                            <i class="fa-solid fa-circle-xmark text-danger"></i>
+                            Fields cannot be empty
+                        </p>
+                    </div>
+                }
+                </div>
+        </div>
+
+
+        <div class="right">
+            <div class="row justify-content-center text-center">
+                <h4>Crypto List</h4>
+                <div class="col-auto">
+                    <table class="text-center table table-responsive" cellpadding="10">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+
+                        @if (ViewBag.all != null)
+                        {
+                            foreach (var crypto in ViewBag.all)
+                            {
+                                <tr>
+                                    <td>@crypto.name</td>
+                                    <td><b>|</b></td>
+                                    <td>@crypto.symbol</td>
+                                    <td><b>|</b></td>
+                                    <td>@crypto.desc</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="3">No data found</td>
+                            </tr>
+                        }
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 }
 else
 {
-<div class="text-center">
-    <h3>
-        <i class="fa-solid fa-circle-xmark text-danger"></i> 
-        Error getting data from CryptoFinderAPI.
-    </h3>
-</div>
+    <div class="text-center">
+        <h3>
+            <i class="fa-solid fa-circle-xmark text-danger"></i>
+            Error getting data from CryptoFinderAPI.
+        </h3>
+    </div>
 }
 
 
